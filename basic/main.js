@@ -26,10 +26,10 @@ class Particle {
     constructor(x,yy){
         this.x = x;
         this.y = yy;
-        this.size = 3;
+        this.size = 10;
         this.baseX = this.x;
         this.baseY = this.y;
-        this.density = (Math.random()* 50) +1;
+        this.density = (Math.random()* 500) +1;
     }
     draw(){
         ctx.fillStyle = 'white';
@@ -46,10 +46,10 @@ class Particle {
         let forceDirectionY = dy / distance;
         
         if(distance <300){
-            this.x += forceDirectionX *3;
-            this.y += forceDirectionY *3;
+            this.x += forceDirectionX *13;
+            this.y += forceDirectionY *13;
         }else{
-            this.size = 3;
+            this.size = 8;
         }
     }
 }
@@ -57,7 +57,7 @@ class Particle {
 function init(){
     partikelArray = [];
     for(let i = 0; i < 10000; i++){
-        let y = Math.random() * 1500;
+        let y = Math.random() * 1800;
         let x = Math.random() * 1500;
        
         partikelArray.push(new Particle(x, y));
