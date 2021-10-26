@@ -3,25 +3,25 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 let partikelArray = [];
-
+//grap the mouse
 const mouse = {
     x: null,
     y: null,
     radius: 150
 }
-
+//mousemoving and console log
 window.addEventListener('mousemove', function(event){
     mouse.x = event.x;
     mouse.y = event.y;
     console.log(mouse.x, mouse.y);
 });
-
+//type a font
 ctx.fillStyle = 'white';
 ctx.font = '30px Verdana';
 ctx.fillText('A', 0, 30);
 const data = ctx.getImageData(0,0,100,100);
 
-
+//create partikles
 class Particle {
     constructor(x,yy){
         this.x = x;
@@ -53,7 +53,7 @@ class Particle {
         }
     }
 }
-
+//init and factory for patrikles
 function init(){
     partikelArray = [];
     for(let i = 0; i < 10000; i++){
@@ -69,7 +69,7 @@ function init(){
 init();
 
 console.log(partikelArray)
-
+//draw and update the screen
 function animate(){
     ctx.clearRect(0,0, canvas.width, canvas.height);
     for(let i = 0; i< partikelArray.length; i++){
