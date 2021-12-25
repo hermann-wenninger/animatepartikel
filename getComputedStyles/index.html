@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       body {
+  background: #D2D2D2;
+}
+
+h1 {
+  margin: 1rem 0 1rem 3rem;
+  text-transform: uppercase;
+  font-family: 'Helvetica';
+  color: #292929;
+}
+
+div {
+  width: 35rem;
+  height: 8rem;
+  line-height: 4;
+  display: block;
+  text-align: center;
+  font-size: 2rem;
+  color: #000;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0.25rem;
+  margin: 2rem auto;
+  cursor: pointer;
+  border: 2px solid #292929;
+  left: 0;
+  position: relative;
+}
+
+.good {
+  background: #185901;
+}
+
+.bad {
+  background: #980101;
+  color: #FFF;
+} 
+    </style>
+</head>
+<body>
+    <div id="the-box" class="bad">The box</div>
+    <script>
+        // First we detect the click event
+            document.getElementById('the-box').addEventListener('click', function () {
+                // Using an if statement to check the class
+                if (this.classList.contains('bad')) {
+                    // The box that we clicked has a class of bad so let's remove it and add the good class
+                    this.classList.remove('bad');
+                    this.classList.add('good');
+                    this.style.width = '10rem';
+                } else {
+                    // This time, instead of the alert, let's move the box for fun
+                    var el = this,
+                        beg = parseInt(getComputedStyle(el).left),
+                        
+                        end = beg + 200;
+                        console.log(getComputedStyle(el).getPropertyValue('font-size'));
+                    function goRight() {
+                        var cur = parseInt(getComputedStyle(el).left);
+                        console.log(getComputedStyle(el));
+
+
+                        setTimeout(function () {
+                            if (cur < end) {
+                                el.style.left = cur + 40 + 'px';
+                                goRight();
+                            }
+                        }, 5);
+                    }
+                    goRight();
+                }
+            });
+    </script>
+</body>
+</html>
