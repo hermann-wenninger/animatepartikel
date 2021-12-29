@@ -1,2 +1,3 @@
 # animatepartikel
-different scripts to animate the dom, canvas and svg's.
+different script's to animate dom, canvas and svg elements.
+2 and 3d.
